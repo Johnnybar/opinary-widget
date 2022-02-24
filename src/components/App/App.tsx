@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Answer from "../Answer/Answer";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import "./App.scss";
 
 function App({ domElement }: AppProps) {
@@ -47,17 +49,15 @@ function App({ domElement }: AppProps) {
   }, [domElement]);
 
   return (
-    <div className="opinary-widget-app container w-75">
-      <header>Poll Header</header>
-      <div className="opinary-widget-app__question-wrapper row">
+    <div className="opinary-app container w-75">
+      <Header />
+      <div className="opinary-question__wrapper row">
         {question && (
-          <h2 className="opinary-widget-app__question-title text-center">
-            {question}
-          </h2>
+          <h2 className="opinary-question__title text-center">{question}</h2>
         )}
         {answers &&
           answers.map(({ answer, vote, id }) => (
-            <div key={id} className="col-4 opinary-widget-app__answer-wrapper">
+            <div key={id} className="col-4 opinary-answer__wrapper">
               <Answer
                 answer={answer}
                 vote={vote}
@@ -72,6 +72,7 @@ function App({ domElement }: AppProps) {
           The following error has occurred: {error}
         </div>
       )}
+      <Footer />
     </div>
   );
 }

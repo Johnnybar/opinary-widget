@@ -18,7 +18,7 @@ describe("App", () => {
     container.remove();
     container = null;
   });
-  test("Should render App", async () => {
+  test("Should render App without error", async () => {
     await act(async () => {
       const widgetDivs = Array.from(
         document.querySelectorAll("#opinary-widget-mock")
@@ -27,8 +27,8 @@ describe("App", () => {
       widgetDivs.forEach((div) => {
         render(<App domElement={div} />);
       });
-      const pollHeader = screen.getByText(/Poll Header/i);
-      expect(pollHeader).toBeInTheDocument();
+      const errorMessage = screen.queryByText(/The following error/i);
+      expect(errorMessage).not.toBeInTheDocument();
     });
   });
 });
