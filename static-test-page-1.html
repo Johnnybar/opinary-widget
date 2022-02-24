@@ -1,13 +1,10 @@
 <body>
-    <div id="opinary-widget" data-questions></div>
-    <script>
-        const questions = {
-            "question": "How do you feel today?",
-            "answers": ["Brilliant! I have so much energy", "Always can be worse", "Please, end my misery"],
-            "questionId": 1
-        };
-        document.getElementById("opinary-widget").setAttribute("data-questions", JSON.stringify(questions));
-    </script>
+    <div class="opinary-widget"
+        data-questions='{
+    "question": "How did you like the Opinary test?" , "answers" : ["It was great and so challenging", "Not bad, but you can improve", "It was a nightmare, never again" ], "questionId": "2"  }'>
+    </div>
+    <script src="./dist/index.js"></script>
+    <link rel="stylesheet" href="./dist/index.css">
 
     <script src="./dist/index.js"></script>
     <link rel="stylesheet" href="./dist/index.css">
