@@ -27,10 +27,17 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="opinary-widget" data-questions='{
-    "question": "how do you feel" , "answers" : { "1" : "good" , "2" : "bad" , "3" : "both" } }'></div>
-  <div id="opinary-widget" data-questions='{
-    "question": "hows your day" , "answers" : { "1" : "yep" , "2" : "nope" , "3" : "what" } }'></div>
+  <div id="opinary-widget" data-test-id="widget"
+    data-questions='{
+    "question": "How do you feel today?" , "answers" : ["Brilliant! I have so much energy", "Always can be worse", "Please, end my misery" ], "questionId": "1" }'>
+  </div>
+
+  <div id="opinary-widget"
+    data-questions='{
+    "question": "How did you like the Opinary test?" , "answers" : ["It was great and so challenging", "Not bad, but you can improve", "It was a nightmare, never again" ], "questionId": "2"  }'>
+  </div>
+
+
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
