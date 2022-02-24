@@ -20,7 +20,7 @@ and editing the div data-questions attribute, like so:
     <link rel="stylesheet" href="./dist/index.css">
 ```
 
-** Make sure that "questionId" is unique to each widget to prevent votes being stored and counted simultaneously for multiple polls.**
+<u> sure that "questionId" is unique to each widget to prevent votes being stored and counted simultaneously for multiple polls.</u>
 
 **Summary of technical choices:**
 
