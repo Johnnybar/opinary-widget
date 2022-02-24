@@ -7,24 +7,9 @@ To start the app run `npm i`, followed by `npm start`. Run all tests with `npm t
 
 Run `npm run build:widget` to build the widget and test its functionality by directly opening up either `static-page-test-1.html` or `static-page-test-2.html`
 
-The widget was bundled using Parcel and can be embedded simply by adding the following code to the body of any HTML page:
+The widget was bundled using Parcel and can be embedded simply by adding the following code to the body of any HTML page
+and editing the div data-questions attribute, like so:
 
-``
-
-<div id="opinary-widget" data-questions></div>
-<script>
-const questions = {
-"question": "How do you feel today?",
-"answers": ["Brilliant! I have so much energy", "Always can be worse", "Please, end my misery"],
-"questionId": 1
-};
-document.getElementById("opinary-widget").setAttribute("data-questions", JSON.stringify(questions));
-</script>
-    <script src="./dist/index.js"></script>
-    <link rel="stylesheet" href="./dist/index.css">
-``
-
-or by directly editing the div data-questions attribute,like so:
 ``
 
 <div id="opinary-widget"
@@ -35,7 +20,6 @@ or by directly editing the div data-questions attribute,like so:
     <link rel="stylesheet" href="./dist/index.css">
 ```
 
-To configure questions in polls, modify the 'questions' variable in the static pages.
 ** Make sure that "questionId" is unique to each widget to prevent votes being stored and counted simultaneously for multiple polls.**
 
 **Summary of technical choices:**
@@ -54,6 +38,7 @@ Once the stateful value of `Answers` exists, that list is rendered using the `An
 
 - Due to the time constraints, the unit tests are pretty standard and I would have liked to improve on them and simulate votes and clicks as well.
 - Currently, users are responsible for adding a question id which is not optimal, this should be automated
+- I began attempting to remove identical polls from page using the isEqualNode method of the Node interface but encountered bugs which I didn't have the time to fix
 - I would have preferred to refactor and modularize more of the functions away from App.tsx in a separate utilities file (and creating separate functions for incrementing count, setting local storage )
 - I believe more error handling could have been added to control proper data-attribute setting
 - I would have compartmentalized the app to more, smaller components
