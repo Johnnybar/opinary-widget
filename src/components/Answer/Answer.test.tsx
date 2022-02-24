@@ -1,9 +1,36 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-// import Answer from "./Answer";
+import { unmountComponentAtNode } from "react-dom";
+import Answer from "./Answer";
 
-test("renders learn react link", () => {
-  // render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("Answer", () => {
+  let container: any;
+  beforeEach(() => {
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
+  });
+  test("Should render Answer", async () => {
+    const mockAnswerObj = {
+      answer: "an answer",
+      vote: 0,
+      id: "2",
+      incrementVoteCountMock: function () {},
+    };
+    render(
+      <Answer
+        answer={mockAnswerObj.answer}
+        vote={mockAnswerObj.vote}
+        id={mockAnswerObj.id}
+        incrementVoteCount={mockAnswerObj.incrementVoteCountMock}
+      />,
+      container
+    );
+    expect(screen.getByText("Vote count: 0")).toBeInTheDocument();
+  });
 });
