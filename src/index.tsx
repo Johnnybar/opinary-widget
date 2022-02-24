@@ -4,7 +4,7 @@ import "./index.scss";
 import App from "./components/App/App";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const WidgetDivs = document.querySelectorAll(".opinary-widget");
+const WidgetDivs = document.querySelectorAll("#opinary-widget");
 
 // Inject our React App into each
 WidgetDivs.forEach((Div) => {
