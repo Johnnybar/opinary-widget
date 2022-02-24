@@ -8,51 +8,63 @@ type AppProps = {
   domElement: Element;
 };
 
-interface Answer {
+interface AnswerProps {
   answer: string;
   vote: number;
   id: number;
 }
 function App({ domElement }: AppProps) {
   const [question, setQuestion] = useState<string>("");
-  const [answers, setAnswers] = useState<Answer[]>([]);
+  const [answers, setAnswers] = useState<AnswerProps[]>([]);
+  const [error, setError] = useState<Optional<string>>(null);
 
   const incrementVoteCount = (id: number) => {
     let currentAnswers = answers.map((answer) => {
       if (answer.id === id) {
-        answer.vote = answer.vote + 1;
+        answer.vote++;
       }
-      console.log(answer, "answer");
 
+      window.localStorage.setItem(String(answer.id), String(answer.vote));
       return answer;
     });
     setAnswers(currentAnswers);
   };
+
   useEffect(() => {
-    const questions = domElement.getAttribute("data-questions");
-    //add error handling if data attribute incorrect
+    try {
+      const questions = domElement.getAttribute("data-questions");
 
-    const { question, answers } = JSON.parse(questions as string);
-    setQuestion(question);
-    const answersArr = Object.values(answers).map((answer, i) => {
-      return { answer: answer, vote: 0, id: i };
-    });
+      //add error handling if data attribute incorrect
 
-    setAnswers(answersArr as []);
-  }, []);
+      const { question, answers } = JSON.parse(questions as string);
+      setQuestion(question);
+      const answersArr = Object.values(answers).map((answer, i) => {
+        const initialCount = window.localStorage.getItem(String(i)) || 0;
+        return { answer: answer, vote: initialCount, id: i };
+      });
+
+      setAnswers(answersArr as []);
+    } catch (error) {
+      setError(error as string);
+    }
+  }, [domElement]);
 
   return (
-    <div className="App">
-      {question && <div>{question}</div>}
-      {answers &&
-        answers.map(({ answer, vote, id }) => (
-          <Answer
-            answer={answer}
-            vote={vote}
-            id={id}
-            incrementVoteCount={incrementVoteCount}
-          />
-        ))}
+    <div className="opinary-widget-app container w-75">
+      <div className="row">
+        {question && <h2 className="text-center">{question}</h2>}
+        {answers &&
+          answers.map(({ answer, vote, id }) => (
+            <div className="col-4">
+              <Answer
+                answer={answer}
+                vote={vote}
+                id={id}
+                incrementVoteCount={incrementVoteCount}
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
