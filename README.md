@@ -10,7 +10,7 @@ Run `npm run build:widget` to build the widget and test its functionality by dir
 The widget was bundled using Parcel and can be embedded simply by adding the following code to the body of any HTML page
 and editing the div data-questions attribute, like so:
 
-``
+```
 
 <div id="opinary-widget"
     data-questions='{
