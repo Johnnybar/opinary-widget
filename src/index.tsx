@@ -4,25 +4,27 @@ import "./index.scss";
 import App from "./components/App/App";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const widgetDivs = document.querySelectorAll("#opinary-widget");
+const widgetDivs = document.querySelectorAll(".opinary-widget");
 
 //Check if polls are identical, remove the identical ones
-const removeIdenticalNodes = (widgetNodeList: NodeListOf<Element>) => {
-  let widgetArr = Array.from(widgetNodeList);
-  for (let i = 0; i < widgetArr.length; i++) {
-    for (let j = 1; j < widgetArr.length; j++) {
-      if (widgetArr[i].isEqualNode(widgetArr[j])) {
-        widgetArr.splice(widgetArr.indexOf(widgetArr[i]), 1);
-      }
-    }
-  }
-  return widgetArr;
-};
+// const removeIdenticalNodes = (widgetNodeList: NodeListOf<Element>) => {
+//   let widgetArr = Array.from(widgetNodeList);
 
-const uniqueWidgetDivs = removeIdenticalNodes(widgetDivs);
+//   for (let i = 0; i < widgetArr.length; i++) {
+//     for (let j = 1; j < widgetArr.length; j++) {
+//       if (widgetArr[i].isEqualNode(widgetArr[j])) {
+//         widgetArr.splice(widgetArr.indexOf(widgetArr[j]), 1);
+//       }
+//     }
+//   }
 
-// Inject our React App into each
-uniqueWidgetDivs.forEach((div) => {
+//   return widgetArr;
+// };
+
+// const uniqueWidgetDivs = removeIdenticalNodes(widgetDivs);
+
+// Inject each widget
+widgetDivs.forEach((div) => {
   ReactDOM.render(
     <React.StrictMode>
       <App domElement={div} />
