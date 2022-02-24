@@ -1,8 +1,12 @@
 <body>
-    <div class="opinary-widget" data-questions='{
-        "question": "how do you feel" , "answers" : { "1" : "good" , "2" : "bad" , "3" : "both" } }'></div>
+    <div id="opinary-widget" data-questions></div>
+    <script>
+        const questions = {
+            "question": "how do you feel",
+            "answers": { "1": "good", "2": "bad", "3": "both" }
+        };
+        document.getElementById("opinary-widget").setAttribute("data-questions", JSON.stringify(questions));
+    </script>
     <script src="./dist/index.js"></script>
     <link rel="stylesheet" href="./dist/index.css">
-
-
 </body>
