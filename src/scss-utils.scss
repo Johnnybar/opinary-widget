@@ -1,0 +1,14 @@
+//color variables
+
+$opinary-orange: #f9a524;
+$opinary-light-grey: #4c5257;
+$opinary-grey: #322e29;
+$opinary-turqoise: #44a3a2;
+$opinary-white: white;
+
+//functions
+
+@function toRem($value) {
+  $remValue: calc($value / 16) + rem;
+  @return $remValue;
+}
