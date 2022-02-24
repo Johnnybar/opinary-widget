@@ -1,1 +1,13 @@
+@import "../../scss-utils.scss";
 
+.opinary-answer {
+  &__button {
+    color: $opinary-white;
+    background-color: $opinary-turqoise;
+    border-color: $opinary-turqoise;
+    border: toRem(1) solid transparent;
+    padding: toRem(12) toRem(6);
+    font-size: toRem(16);
+    border-radius: toRem(14);
+  }
+}

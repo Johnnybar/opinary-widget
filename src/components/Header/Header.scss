@@ -1,0 +1,28 @@
+@import "../../scss-utils.scss";
+.opinary-header {
+  color: $opinary-white;
+  background-color: $opinary-grey;
+  max-height: 10vh;
+  transition: 0.3s;
+  margin-bottom: toRem(20);
+
+  &:hover {
+    background-color: $opinary-orange;
+  }
+
+  &__heading {
+    position: absolute;
+    right: 50%;
+    margin-right: toRem(-65);
+    display: inline-block;
+    margin-top: toRem(10);
+    @media only screen and (max-device-width: 480px) {
+      right: toRem(85);
+    }
+  }
+
+  &__logo {
+    padding: toRem(10);
+    width: toRem(85);
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../scss-utils.scss";
+.opinary-footer {
+  background-color: $opinary-grey;
+  color: $opinary-white;
+  transition: 0.3s;
+  margin: toRem(20) 0 toRem(20) 0;
+
+  &:hover {
+    background-color: $opinary-orange;
+  }
+
+  &__text {
+    font-size: toRem(12);
+    font-weight: bold;
+    color: $opinary-white;
+    padding: toRem(5) 0 0 0;
+    height: 5vh;
+  }
+}

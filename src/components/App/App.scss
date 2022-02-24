@@ -1,4 +1,11 @@
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@import "../../scss-utils.scss";
+
+.opinary-app {
+  background-color: $opinary-light-grey;
+}
+
+.opinary-question {
+  &__title {
+    color: $opinary-white;
+  }
 }
