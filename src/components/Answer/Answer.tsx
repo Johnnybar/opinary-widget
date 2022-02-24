@@ -2,12 +2,6 @@ import React from "react";
 import "./Answer.scss";
 import { Card, Button } from "react-bootstrap";
 
-type AnswerProps = {
-  answer: string;
-  vote: number;
-  id: number;
-  incrementVoteCount: incrementVoteCount;
-};
 function Answer({ answer, vote, id, incrementVoteCount }: AnswerProps) {
   return (
     <Card>
