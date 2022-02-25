@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import "./App.scss";
 
-function App({ domElement }: AppProps) {
+function App({ domElement, widgetIndex }: AppProps) {
   const [question, setQuestion] = useState<string>("");
   const [answers, setAnswers] = useState<AnswerProps[]>([]);
   const [error, setError] = useState<Optional<string>>(null);
@@ -28,12 +28,12 @@ function App({ domElement }: AppProps) {
       if (!questions) {
         return;
       }
-      const { question, answers, questionId } = JSON.parse(questions as string);
+      const { question, answers } = JSON.parse(questions as string);
       setQuestion(question);
       // create array of answers object with 3 props and set it to answers
       const answersArr = answers.map((answer: AnswerProps, i: number) => {
         //exactId makes sure different poll's questions on same page have unique key in localstorage
-        const exactId = String(i) + String(questionId);
+        const exactId = String(i) + String(widgetIndex);
         const initialCount = window.localStorage.getItem(exactId) || 0;
         return {
           answer: answer,
@@ -41,12 +41,13 @@ function App({ domElement }: AppProps) {
           id: exactId,
         };
       });
+
       setAnswers(answersArr as AnswerProps[]);
     } catch (error) {
       setError(error as string);
       console.log(error);
     }
-  }, [domElement]);
+  }, [domElement, widgetIndex]);
 
   return (
     <div className="opinary-app container w-75">

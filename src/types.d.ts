@@ -3,6 +3,7 @@ type incrementVoteCount = (id: string) => void;
 
 interface AppProps {
   domElement: Element;
+  widgetIndex: number;
 }
 
 interface AnswerProps {

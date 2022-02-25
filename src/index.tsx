@@ -7,27 +7,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const widgetDivs = document.querySelectorAll(".opinary-widget");
 
 //Check if polls are identical, remove the identical ones
-// const removeIdenticalNodes = (widgetNodeList: NodeListOf<Element>) => {
-//   let widgetArr = Array.from(widgetNodeList);
+const removeIdenticalNodes = (widgetNodeList: NodeListOf<Element>) => {
+  let widgetArr = Array.from(widgetNodeList);
+  for (let i = 1; i < widgetArr.length; i++) {
+    let node1 = widgetArr[i - 1];
+    let node2 = widgetArr[i];
+    if (node1.isEqualNode(node2)) {
+      widgetArr.splice(widgetArr.indexOf(node2), 1);
+    }
+  }
 
-//   for (let i = 0; i < widgetArr.length; i++) {
-//     for (let j = 1; j < widgetArr.length; j++) {
-//       if (widgetArr[i].isEqualNode(widgetArr[j])) {
-//         widgetArr.splice(widgetArr.indexOf(widgetArr[j]), 1);
-//       }
-//     }
-//   }
+  return widgetArr;
+};
 
-//   return widgetArr;
-// };
-
-// const uniqueWidgetDivs = removeIdenticalNodes(widgetDivs);
+const uniqueWidgetDivs = removeIdenticalNodes(widgetDivs);
 
 // Inject each widget
-widgetDivs.forEach((div) => {
+uniqueWidgetDivs.forEach((div, widgetIndex) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App domElement={div} />
+      <App domElement={div} widgetIndex={widgetIndex} />
     </React.StrictMode>,
     div
   );
