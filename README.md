@@ -41,7 +41,8 @@ and editing the div data-questions attribute (see code below note).
 
 **What could be improved but could not be done during the time allocated**
 
-- Due to the time constraints, the unit tests are pretty basic and only ensure rendering of the components. I would have liked to improve on them and simulate votes and clicks using userEvents and mock functions as well.
+- Due to the time constraints, the unit tests are simple and not as comprehensive as they should be. I would have liked to improve on them and simulate votes and clicks using userEvents and mock functions as well.
 - I would have preferred to refactor and simplify App.tsx, modularizing more of the functions away from it to a separate utilities file (and creating separate functions for incrementing count, setting local storage).
 - I would have liked to refactor my question and answers configuration approach.
 - Additional functionalities, such as adding custom answers and removing votes
+- Adding an App error boundary
