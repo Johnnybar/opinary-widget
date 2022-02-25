@@ -18,17 +18,17 @@ describe("App", () => {
     container.remove();
     container = null;
   });
-  test("Should render App without error", async () => {
+  test("Should render App", async () => {
     await act(async () => {
       const widgetDivs = Array.from(
         document.querySelectorAll("#opinary-widget-mock")
       );
 
       widgetDivs.forEach((div) => {
-        render(<App domElement={div} />);
+        render(<App domElement={div} widgetIndex={2} />);
       });
-      const errorMessage = screen.queryByText(/The following error/i);
-      expect(errorMessage).not.toBeInTheDocument();
+      const appTitle = screen.getByText(/Opinary Poll/i);
+      expect(appTitle).toBeInTheDocument();
     });
   });
 });
