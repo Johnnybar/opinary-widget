@@ -1,6 +1,6 @@
 import React from "react";
 import "./Answer.scss";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 function Answer({ answer, vote, id, incrementVoteCount }: AnswerProps) {
@@ -9,7 +9,7 @@ function Answer({ answer, vote, id, incrementVoteCount }: AnswerProps) {
       <Card.Body>
         <Card.Title>{answer}</Card.Title>
         <motion.button
-          className="opinary-answer__button text-center"
+          className="opinary-answer__button"
           whileHover={{ scale: 1.2 }}
           whileTap={{ rotate: "-40deg" }}
           onClick={() => incrementVoteCount(id)}
