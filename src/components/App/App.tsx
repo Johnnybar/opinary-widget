@@ -16,6 +16,7 @@ function App({ domElement, widgetIndex }: AppProps) {
       if (answer.id === id) {
         answer.vote++;
       }
+
       window.localStorage.setItem(String(answer.id), String(answer.vote));
       return answer;
     });
@@ -32,7 +33,7 @@ function App({ domElement, widgetIndex }: AppProps) {
       setQuestion(question);
       // create array of answers object with 3 props and set it to answers
       const answersArr = answers.map((answer: AnswerProps, i: number) => {
-        //exactId makes sure different poll's questions on same page have unique key in localstorage
+        //exactId makes sure different polls' questions on same page have unique key in localstorage
         const exactId = String(i) + String(widgetIndex);
         const initialCount = window.localStorage.getItem(exactId) || 0;
         return {
@@ -69,8 +70,10 @@ function App({ domElement, widgetIndex }: AppProps) {
           ))}
       </div>
       {error && (
-        <div className="opinary-widget-app__answer-wrapper">
-          The following error has occurred: {error}
+        <div className="opinary-error__wrapper">
+          <p>
+            The following error has occurred: <strong>{error}</strong>
+          </p>
         </div>
       )}
       <Footer />
