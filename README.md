@@ -8,7 +8,7 @@ To start the app run `npm i`, followed by `npm start`. Run all tests with `npm t
 Run `npm run build:widget` to build the widget and test its functionality by directly opening up either `static-page-test-1.html` or `static-page-test-2.html` on the project root.
 
 The widget was bundled using Parcel and can be embedded simply by adding a few lines of code to the body of any HTML page
-and editing the div data-questions attribute (see code below note).
+and editing the div `data-questions` attribute (see code below note).
 
 **Note:** Since it should be possible to embed the widget in a static page, which reduced flexibility in terms of configuration, I decided on passing the question and answers as a data-attribute. An HTTP client was able to retrieve JSON data on the React app but unfortunately causes CORS issues if used on a static page. I would be specifically happy for feedback here.
 
@@ -45,4 +45,3 @@ and editing the div data-questions attribute (see code below note).
 - I would have preferred to refactor and simplify App.tsx, modularizing more of the functions away from it to a separate utilities file (and creating separate functions for incrementing count, setting local storage).
 - I would have liked to refactor my question and answers configuration approach.
 - Additional functionalities, such as adding custom answers and removing votes
-- Adding an App error boundary
