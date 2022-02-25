@@ -8,8 +8,6 @@ function Header() {
       <div className="opinary-header__content-wrapper">
         <img src={logo} alt="opinary logo" className="opinary-header__logo" />
         <h3 className="opinary-header__heading  text-center ">Opinary Poll</h3>
-
-        <div></div>
       </div>
     </header>
   );
