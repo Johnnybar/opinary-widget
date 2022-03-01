@@ -16,7 +16,7 @@ describe("Header", () => {
     container = null;
   });
   test("Renders Header", () => {
-    render(<Header />);
+    render(<Header />, container);
     const headerText = screen.getByText(/Opinary Poll/i);
     expect(headerText).toBeInTheDocument();
   });

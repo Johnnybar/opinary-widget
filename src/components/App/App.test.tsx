@@ -25,7 +25,7 @@ describe("App", () => {
       );
 
       widgetDivs.forEach((div) => {
-        render(<App domElement={div} widgetIndex={2} />);
+        render(<App domElement={div} widgetIndex={2} />, container);
       });
       const appTitle = screen.getByText(/Opinary Poll/i);
       expect(appTitle).toBeInTheDocument();

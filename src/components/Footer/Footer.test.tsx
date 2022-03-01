@@ -17,7 +17,7 @@ describe("Footer", () => {
     container = null;
   });
   test("Renders Footer", () => {
-    render(<Footer />);
+    render(<Footer />, container);
     const footerText = screen.getByText(/We help/i);
     expect(footerText).toBeInTheDocument();
   });
