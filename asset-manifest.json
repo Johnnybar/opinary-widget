@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/opinary-widget/static/css/main.09c2b747.css",
+    "main.js": "/opinary-widget/static/js/main.a8219e2c.js",
+    "static/media/opinary-logo.svg": "/opinary-widget/static/media/opinary-logo.18f41d207992119a9141a0cef2abcd87.svg",
+    "index.html": "/opinary-widget/index.html",
+    "main.09c2b747.css.map": "/opinary-widget/static/css/main.09c2b747.css.map",
+    "main.a8219e2c.js.map": "/opinary-widget/static/js/main.a8219e2c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09c2b747.css",
+    "static/js/main.a8219e2c.js"
+  ]
+}
